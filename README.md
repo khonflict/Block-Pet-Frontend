@@ -9,8 +9,8 @@ Pet adoption API using resources from Petfinder API
 
 DATE | PROGRESS | BLOCKERS | GOALS
 ------ | ------ | ------ | ------ |
-07/08/22 | Created folder structures. Created nav and footer components | None | Build out pages |
-
+07/09/22 | Created folder structures. Created nav and footer components | None | Build out pages |
+07/10/22 | Created login, users-servie, and pets-service pages. Connect frontend to backend.  | Frontend/backend connection error. Token not displaying. | Resolve connection error. Work on auth. |
 
 ***
 
@@ -18,6 +18,7 @@ DATE | PROGRESS | BLOCKERS | GOALS
 
 1. React
 2. Axios
+3. Bootstrap
 
 
 ***
