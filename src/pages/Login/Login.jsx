@@ -1,12 +1,14 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { login } from '../../utilities/users-service'
 
-const Login = () => {
-    const [message, setMessage] = useState("Hello friend - welcome back!")
+const Login = ({ setUser }) => {
+    const [message, setMessage] = useState("Hey Friend - Welcome Back!")
     const [credentials, setCredentials] = useState({
         email: '',
         password: ''
     })
+    const navigate = useNavigate()
 
     const handleChange = e => {
         setCredentials({ ...credentials, [e.target.name]: e.target.value })
@@ -16,9 +18,17 @@ const Login = () => {
         // Prevents form from being submitted to the server
         e.preventDefault()
         try {
-            login(credentials)     
+            const user = await login(credentials)
+            // Once we get our user back, update our App.js user state with the user's firstname
+            // console.log(user)
+            if(user) {
+                setUser(user)
+                // Redirect to pets page after successful login
+                navigate('/pets')
+            }
+           
         } catch(e) {
-            setMessage('Log In Failed - Try Again')
+            setMessage('Log in Failed - Try Again')
         }
     }
 

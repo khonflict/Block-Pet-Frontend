@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
 // Components
 import Nav from '../../components/Nav/Nav'
@@ -6,19 +7,30 @@ import Footer from '../../components/Footer/Footer'
 import Home from '../Home/Home'
 import Login from '../Login/Login'
 import SignUp from '../SignUp/SignUp'
+import Pets from '../Pets/Pets'
+// Services
+import * as usersService from '../../utilities/users-service'
 // CSS
 import './App.css';
 
-function App() {
+const App = () => {
+  const [user, setUser] = useState('')
+
+  useEffect(() => {
+    if(usersService.getToken()) setUser(usersService.getUser())
+  }, [])
+
+  console.log('hello', user)
   return (
     <div className="App">
-      <Nav />
+      <Nav user={user} setUser={setUser} logOut={usersService.logOut} />
 
       {/* client-side route that renders the component instance if the path matches the url in the address bar */}
       <Routes>
-        <Route path='/' element={ <Home /> }/>
-        <Route path='/login' element={ <Login /> } />
+        <Route path='/' element={ <Home /> } />
+        <Route path='/login' element={ <Login setUser={setUser}/> } />
         <Route path='/signup' element={ <SignUp /> } />
+        <Route path='/pets' element={ user && <Pets />} />  
       </Routes>
 
       <Footer />

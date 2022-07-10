@@ -1,6 +1,13 @@
 import { Link } from 'react-router-dom'
 
-const Nav = () => {
+const Nav = ({ user, setUser, logOut}) => {
+    // console.log('user', user)
+
+    const handleLogOut = () => {
+        setUser(null)
+        logOut()
+    }
+
     return (
         <div>
             <nav className="navbar navbar-expand-lg bg-light">
@@ -10,18 +17,36 @@ const Nav = () => {
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                        <form className="d-flex" role="search">
-                            <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                            <button className="btn btn-outline-success" type="submit">Search</button>
-                        </form>
-                        <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-                            <li className="nav-item">
-                                <Link className="nav-link" to="/signup">Sign Up</Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className="nav-link" to="/login">Log In</Link>
-                            </li>
-                        </ul>
+
+                        {
+                            user
+                                ?
+                                <>
+                                    <form className="d-flex" role="search">
+                                        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                                        <button className="btn btn-outline-success" type="submit">Search</button>
+                                    </form>
+                                    <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+                                        <li className="nav-item">
+                                            <Link className="nav-link" to="/pets">My Pets</Link>
+                                        </li>
+                                        <li className="nav-item">
+                                            <Link className="nav-link" onClick={handleLogOut} to="/">Logout</Link>
+                                        </li>
+                                    </ul>
+                                </>
+                                :
+                                <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+                                    <li className="nav-item">
+                                        <Link className="nav-link" to="/signup">Sign Up</Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link className="nav-link" to="/login">Log In</Link>
+                                    </li>
+                                </ul>
+                        }
+
+
                     </div>
                 </div>
             </nav>
