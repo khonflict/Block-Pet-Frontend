@@ -26,7 +26,7 @@ const Pets = () => {
         <div>
             THIS IS OUR PETS PAGE
             {/* <button onClick={() => setBool(true)}>CLICK ME</button> */}
-            <button onClick={logOut}>LOGOUT</button>
+            <button onClick={logOut}>Sign Out</button>
         </div>
     );
 }
