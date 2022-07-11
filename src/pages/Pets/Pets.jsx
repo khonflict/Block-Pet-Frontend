@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { getPets } from '../../utilities/pets-service'
 import { logOut } from '../../utilities/users-service'
+import { Link } from 'react-router-dom'
 import './Pets.css'
 
 const Pets = () => {
@@ -30,22 +31,27 @@ const Pets = () => {
 
     // console.log('PETS', pets)
     return (
-        <div className="row row-cols-1 row-cols-md-2 g-4">
-            PETS PAGE
-            {
-                pets.map(pet => 
-                    <div className="col" id='pet-card' key={pet._id}>
-                        <div className="card" >
-                            <img src='https://i.imgur.com/hnHO3sn.jpg' className="card-img-top" alt={`Pet's name: ${pet.name}`} id='pet-name' />
-                            <div className="card-body">
-                                <h5 className="card-title">{pet.name}</h5>
-                                <p className="card-text">{pet.breed}</p>
+        <div >
+   
+                <Link className="btn btn-primary" to='/pets/create'>Add New Pet</Link>
+       
+            <div className="row row-cols-1 row-cols-md-2 g-4">
+                {
+                    pets.map(pet =>
+                        <div className="col" id='pet-card' key={pet._id}>
+                            <div className="card" >
+                                <img src='https://i.imgur.com/hnHO3sn.jpg' className="card-img-top" alt={`Pet's name: ${pet.name}`} id='pet-name' />
+                                <div className="card-body">
+                                    <h5 className="card-title">{pet.name}</h5>
+                                    <p className="card-text">{pet.breed}</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                )
-            }
+                    )
+                }
+            </div>
         </div>
+
     )
 }
 

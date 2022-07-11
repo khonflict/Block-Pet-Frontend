@@ -8,6 +8,7 @@ import Home from '../Home/Home'
 import Login from '../Login/Login'
 import SignUp from '../SignUp/SignUp'
 import Pets from '../Pets/Pets'
+import CreatePet from '../CreatePet/CreatePet'
 // Services
 import * as usersService from '../../utilities/users-service'
 // CSS
@@ -31,6 +32,7 @@ const App = () => {
         <Route path='/login' element={ <Login setUser={setUser}/> } />
         <Route path='/signup' element={ <SignUp /> } />
         <Route path='/pets' element={ user && <Pets />} />  
+        <Route path='/pets/create' element={ user && <CreatePet />} />  
       </Routes>
 
       <Footer />

@@ -35,7 +35,7 @@ const Login = ({ setUser }) => {
     }
 
     return (
-        <form className='mx-auto w-50 border p-3' onSubmit={handleSubmit}>
+        <form className='mx-auto w-50 border p-5' onSubmit={handleSubmit}>
             <div className="mb-3">
                 <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
                 <input 

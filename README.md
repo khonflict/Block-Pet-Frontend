@@ -18,7 +18,7 @@ DATE | PROGRESS | BLOCKERS | GOALS
 
 1. React
 2. Axios
-3. Bootstrap
+3. Bootstrap 5
 
 
 ***
