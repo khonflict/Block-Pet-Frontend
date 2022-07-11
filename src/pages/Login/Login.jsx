@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { login } from '../../utilities/users-service'
 
 const Login = ({ setUser }) => {
-    const [message, setMessage] = useState("Hey Friend - Welcome Back!")
+    const [message, setMessage] = useState("Hey Pet Lover - Welcome Back!")
     const [credentials, setCredentials] = useState({
         email: '',
         password: ''
@@ -20,11 +20,13 @@ const Login = ({ setUser }) => {
         try {
             const user = await login(credentials)
             // Once we get our user back, update our App.js user state with the user's firstname
-            // console.log(user)
+            console.log(user)
             if(user) {
                 setUser(user)
                 // Redirect to pets page after successful login
                 navigate('/pets')
+            } else {
+                throw new Error 
             }
            
         } catch(e) {

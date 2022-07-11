@@ -15,6 +15,7 @@ export const getPets = async () => {
     
         const response = await axios.get(BASE_URL, options)
         console.log(response)
+        return response
     } catch(e) {
         console.log(e)
     }
