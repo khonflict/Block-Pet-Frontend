@@ -1,10 +1,12 @@
-
+import './Home.css'
 
 const Home = () => {
     return (
-        <div>
-            Home Page
-        </div>
+     
+    <div id='home-img'>
+   
+    </div>
+
     );
 }
 

@@ -1,7 +1,8 @@
+import './SignUp.css'
 const SignUp = () => {
     return (
-        <div>
-            <form className="row g-3 mx-auto w-50 border p-5">
+        <div id='signUp-img'>
+            <form className="row g-3 mx-auto w-50 border p-5 m-5">
                 <div className="col-md-6">
                     <label htmlFor="inputFirstName4" className="form-label">First Name</label>
                     <input type="text" className="form-control" id="inputFirstName4" />
@@ -26,7 +27,7 @@ const SignUp = () => {
                     <div className="form-check">
                         <input className="form-check-input" type="checkbox" id="gridCheck" />
                         <label className="form-check-label" htmlFor="gridCheck">
-                            Check here to join our newsletter and receive special promotional offers!
+                            Subscribe to our newsletter!
                         </label>
                     </div>
                 </div>

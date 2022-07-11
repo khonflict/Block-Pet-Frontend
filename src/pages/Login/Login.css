@@ -1,0 +1,8 @@
+#login-img {
+    background-image: url("https://images.unsplash.com/photo-1612536057832-2ff7ead58194?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDl8fHBldHMlMjB3YWxscGFwZXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60");
+    background-size:contain;
+    background-position-x: right;
+    background-repeat: no-repeat;
+    background-color: #cbcbce;
+    height: 100vh; 
+}

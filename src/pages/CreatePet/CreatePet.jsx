@@ -1,5 +1,3 @@
-
-
 const CreatePet = () => {
     return (
         <div>
