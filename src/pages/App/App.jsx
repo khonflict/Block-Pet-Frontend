@@ -33,11 +33,17 @@ const App = () => {
       <Routes>
         <Route path='/' element={ <Home /> } />
         <Route path='/login' element={ <Login setUser={setUser}/> } />
-        <Route path='/signup' element={ <SignUp /> } />
-        <Route path='/pets' element={ user && <Pets />} />  
-        <Route path='/pets/create' element={ user && <CreatePet />} />  
-        <Route path='/pets/:id' element={ user && <PetDetails />} />  
-        <Route path='/pets/:id/edit' element={ user && <UpdatePetForm />} /> 
+        <Route path='/signup' element={ <SignUp setUser={setUser}/> } />
+        {
+          user &&
+          <>
+           <Route path='/pets' element={<Pets />} />  
+          <Route path='/pets/create' element={<CreatePet />} />  
+          <Route path='/pets/:id' element={<PetDetails />} />  
+          <Route path='/pets/:id/edit' element={<UpdatePetForm />} /> 
+          </>
+        }
+       
       </Routes>
 
       <Footer />
