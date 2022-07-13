@@ -1,25 +1,14 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from "react-router-dom";
+import { useState } from "react";
 import * as petsService from '../../utilities/pets-service'
-import './CreatePet.css'
 
-const CreatePet = () => {
-    const [petDetails, setPetDetails] = useState({
-        name:'',
-        species:'',
-        breed: '',
-        gender:'',
-        dob:'',
-        age:'',
-        adoption:'',
-        medication:'',
-        vet:'',
-        image:'',
-        notes:''
-    })
-
+const UpdatePetForm = () => {
+    const location = useLocation()
     const navigate = useNavigate()
-
+    const pet = location.state
+    
+    const [petDetails, setPetDetails] = useState(pet)
+    
     const handleChange = e => {
         setPetDetails({
             ...petDetails,
@@ -27,11 +16,15 @@ const CreatePet = () => {
         })
     }
 
-    const handleSubmit = e => {
+    const handleSubmit = async e => {
         e.preventDefault()
-        // console.log(petDetails)
-        petsService.createPet(petDetails)
-        navigate('/pets')
+        try {
+        const res = await petsService.updatePet(petDetails)
+        // console.log(res)
+        if (res.status === 200) navigate(`/pets/${petDetails._id}`, { state: petDetails})
+        } catch (e) {
+            console.log(e)
+        }
     }
     console.log(petDetails)
     return (
@@ -131,7 +124,7 @@ const CreatePet = () => {
             <div className="col-md-3">
                     <label 
                         htmlFor="inputAdoption" 
-                        className="form-label">Adoption Date
+                        className="form-label">Date of Adoption
                     </label>
                     <input 
                         type="date" 
@@ -160,13 +153,13 @@ const CreatePet = () => {
 
                 <div className="col-md-6">
                     <label 
-                        htmlFor="inputMeds4" 
+                        htmlFor="inputMeds" 
                         className="form-label">Medication
                     </label>
                     <input 
                         type="text" 
                         className="form-control" 
-                        id="inputMeds4" 
+                        id="inputMeds" 
                         name="medication"
                         onChange={handleChange}
                         value={petDetails.medication}
@@ -175,13 +168,13 @@ const CreatePet = () => {
 
                 <div className="col-12">
                     <label 
-                        htmlFor="inputImage4" 
+                        htmlFor="inputImage" 
                         className="form-label">Image
                     </label>
                     <input 
                         type="text" 
                         className="form-control" 
-                        id="inputImage4" 
+                        id="inputImage" 
                         name="image"
                         onChange={handleChange}
                         value={petDetails.image}
@@ -190,13 +183,13 @@ const CreatePet = () => {
 
                 <div className="col-12">
                     <label 
-                        htmlFor="inputNotes4" 
+                        htmlFor="inputNotes" 
                         className="form-label">Notes
                     </label>
                     <textarea 
                         type="text" 
                         className="form-control" 
-                        id="inputNotes4" 
+                        id="inputNotes" 
                         rows="3"
                         name="notes"
                         onChange={handleChange}
@@ -229,12 +222,11 @@ const CreatePet = () => {
                     </label>
                 </div> */}
                 <div className="col-12 text-center">
-                    <button type="submit" className="btn bg-info text-white">Add Pet</button>
+                    <button type="submit" className="btn bg-info text-white">Update Pet</button>
                 </div>
             </form>
         </div>
     );
-
 }
 
-export default CreatePet;
+export default UpdatePetForm;

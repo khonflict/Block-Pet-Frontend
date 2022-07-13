@@ -19,6 +19,8 @@ DATE | PROGRESS | BLOCKERS | GOALS
 1. React
 2. Axios
 3. Bootstrap 5
+4. CRUD
+5. Postimages.org
 
 
 ***

@@ -1,13 +1,12 @@
 import { useState, useEffect } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import { getPets } from '../../utilities/pets-service'
-import { logOut } from '../../utilities/users-service'
-import { Link } from 'react-router-dom'
 import './Pets.css'
 
 const Pets = () => {
     const [pets, setPets] = useState([])
     // const [bool, setBool] = useState(false)
-
+    const navigate = useNavigate()
     // useEffect below will invoke after every render
     // useEffect(() => {
     //     console.log('helloasdasd')
@@ -31,17 +30,20 @@ const Pets = () => {
 
     // console.log('PETS', pets)
     return (
-        <div >
-   
-                <Link className="btn btn-primary" to='/pets/create'>Add New Pet</Link>
-       
-            <div className="row row-cols-1 row-cols-md-2 g-4">
+        <div id='pets-img'>
+            <div className="text-center">
+                <Link className="col-2 btn m-4 bg-info text-white" to='/pets/create'>Add New Pet</Link>
+            </div>
+
+
+            <div id='pet-container' className="row row-cols-1 row-cols-md-2 g-5 p-5">
                 {
                     pets.map(pet =>
-                        <div className="col" id='pet-card' key={pet._id}>
+                        <div className="col" id='pet-card' key={pet._id} onClick={() =>
+                        navigate(`/pets/${pets._id}`, {state:pet})}>
                             <div className="card" >
-                                <img src='https://i.imgur.com/hnHO3sn.jpg' className="card-img-top" alt={`Pet's name: ${pet.name}`} id='pet-name' />
-                                <div className="card-body">
+                                <img src={pet.image} className="card-img-top" alt={`Pet's name: ${pet.name}`} id='pet-name' />
+                                <div className="card-body text-center">
                                     <h5 className="card-title">{pet.name}</h5>
                                     <p className="card-text">{pet.breed}</p>
                                 </div>
@@ -55,6 +57,6 @@ const Pets = () => {
     )
 }
 
-{/* <button onClick={() => setBool(true)}>CLICK ME</button>
-<button onClick={logOut}>LOGOUT</button> */}
+// {/* <button onClick={() => setBool(true)}>CLICK ME</button>
+// <button onClick={logOut}>LOGOUT</button> */}
 export default Pets;

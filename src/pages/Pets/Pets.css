@@ -1,15 +1,12 @@
-/* #pet-wrapper {
-    text-align: center;
-    margin: 1%;
+
+#pets-img {
+    background-image: url("https://i.postimg.cc/x1bTjf40/Untitled-design-7-copy.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh; 
 }
 
-#pet-container {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 5%;
-} */
-
 #pet-card {
-    width: 18rem;
+    width: 15rem;
 }
 

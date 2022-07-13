@@ -3,6 +3,8 @@ import { Routes, Route } from 'react-router-dom'
 // Components
 import Nav from '../../components/Nav/Nav'
 import Footer from '../../components/Footer/Footer'
+import PetDetails from '../../components/PetDetails/PetDetails'
+import UpdatePetForm from '../../components/UpdatePetForm/UpdatePetForm'
 // Pages
 import Home from '../Home/Home'
 import Login from '../Login/Login'
@@ -14,6 +16,7 @@ import * as usersService from '../../utilities/users-service'
 // CSS
 import './App.css';
 
+
 const App = () => {
   const [user, setUser] = useState('')
 
@@ -21,7 +24,7 @@ const App = () => {
     if(usersService.getToken()) setUser(usersService.getUser())
   }, [])
 
-  console.log('hello', user)
+  // console.log('hello', user)
   return (
     <div className="App">
       <Nav user={user} setUser={setUser} logOut={usersService.logOut} />
@@ -33,6 +36,8 @@ const App = () => {
         <Route path='/signup' element={ <SignUp /> } />
         <Route path='/pets' element={ user && <Pets />} />  
         <Route path='/pets/create' element={ user && <CreatePet />} />  
+        <Route path='/pets/:id' element={ user && <PetDetails />} />  
+        <Route path='/pets/:id/edit' element={ user && <UpdatePetForm />} /> 
       </Routes>
 
       <Footer />

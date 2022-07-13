@@ -11,8 +11,14 @@ const Nav = ({ user, setUser, logOut}) => {
     return (
         <div>
             <nav className="navbar navbar-expand-lg bg-light">
-                <div className="container-fluid d-flex justify-content-between">
-                    <Link className="navbar-brand col" to="/">LOGO</Link>
+            
+                <div className="container-fluid">
+             
+ <a className="navbar-brand" href="/">
+      <img src="../images/BlockPetsLogo.png" alt="logo"/>
+    </a>
+
+                    {/* <Link className="navbar-brand" to="/"><img src="images/BlockPetsLogo.svg"/></Link> */}
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
