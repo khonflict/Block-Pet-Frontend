@@ -35,8 +35,10 @@ const SignUp = ({ setUser}) => {
 
     return (
         <div id='signUp-img'>
-            <form className="row g-3 mx-auto w-50 border border-5 rounded-3 p-5 m-5" onSubmit={handleSubmit}>
-                
+            
+            <form className="row g-3 mx-auto w-50 border border-5 rounded-3 p-5 m-5
+            " onSubmit={handleSubmit}>
+            <h3>Sign Up</h3>
                 <div className="col-md-6">
                     <label 
                         htmlFor="inputFirstName" 

@@ -23,7 +23,7 @@ const Login = ({ setUser }) => {
             // console.log(user)
             setUser(user)
             if (user) {
-                
+
                 // Redirect to pets page after successful login
                 navigate('/pets')
             } else {
@@ -36,6 +36,8 @@ const Login = ({ setUser }) => {
     return (
         <div id='login-img'>
             <form className='mx-auto w-50 border border-5 rounded-3 p-5 m-5' onSubmit={handleSubmit}>
+                <h3>Log In</h3>
+                <br />
                 <div className="mb-3 col-md-6 m-auto" >
                     <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
                     <input
