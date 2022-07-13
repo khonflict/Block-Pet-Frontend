@@ -36,10 +36,10 @@ const Pets = () => {
             </div>
 
 
-            <div id='pet-container' className="row row-cols-1 row-cols-md-2 g-5 p-5">
+            <div id='pet-container' className="row row-cols-1 row-cols-md-2 g-5 p-5 text-center">
                 {
                     pets.map(pet =>
-                        <div className="col" id='pet-card' key={pet._id} onClick={() =>
+                        <div className="col mx-auto" id='pet-card' key={pet._id} onClick={() =>
                         navigate(`/pets/${pets._id}`, {state:pet})}>
                             <div className="card" >
                                 <img src={pet.image} className="card-img-top" alt={`Pet's name: ${pet.name}`} id='pet-name' />

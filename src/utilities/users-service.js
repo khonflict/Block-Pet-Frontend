@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const BASE_URL = 'http://localhost:3005/api/v1/users'
+const BASE_URL = 'https://khonflict.github.io/Block-Pet-Backend/'
 
 export const login = async credentials => {
     try {
@@ -12,7 +12,6 @@ export const login = async credentials => {
         // Persist the token using Window localStorage
         // setItem() first arg is the property name and the second arg is the value
         localStorage.setItem('token', token.data)
-
         return getUser()
     } catch(e) {
         console.log(e)
@@ -41,8 +40,7 @@ export const getToken = () => {
     // console.log(payload)
     // console.log(typeof payload) // string
 
-    // console.log(new Date(Date.now()))
-    // console.log(new Date(payload.exp * 1000))
+
     // JWT's expiration is written in seconds, not milliseconds
     if(payload.exp * 1000 < Date.now()) {
         // payload.exp is higher but when it expires it's greater than the current date

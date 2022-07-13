@@ -10,6 +10,7 @@ const Login = ({ setUser }) => {
         password: ''
     })
     const navigate = useNavigate()
+
     const handleChange = e => {
         setCredentials({ ...credentials, [e.target.name]: e.target.value })
     }
@@ -19,9 +20,10 @@ const Login = ({ setUser }) => {
         try {
             const user = await login(credentials)
             // Once we get our user back, update our App.js user state with the user's firstname
-            console.log(user)
+            // console.log(user)
+            setUser(user)
             if (user) {
-                setUser(user)
+                
                 // Redirect to pets page after successful login
                 navigate('/pets')
             } else {

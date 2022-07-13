@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { getToken } from './users-service'
 
-const BASE_URL = 'http://localhost:3005/api/v1/pets'
+const BASE_URL = 'https://khonflict.github.io/Block-Pet-Backend/'
 
 const setOptions = () => {
     return {headers: {
